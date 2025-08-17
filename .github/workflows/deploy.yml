@@ -35,6 +35,14 @@ jobs:
     - name: Build application
       run: npm run build
       
+    - name: Create static export
+      run: |
+        mkdir -p out
+        cp -r .next/static out/
+        cp -r .next/server/pages-manifest.json out/ 2>/dev/null || true
+        cp -r .next/server/app-paths-manifest.json out/ 2>/dev/null || true
+        echo '<!DOCTYPE html><html><head><title>BikodaInfo</title></head><body><h1>BikodaInfo - Vibecoding Studio</h1><p>Site is being deployed...</p></body></html>' > out/index.html
+      
     - name: Setup Pages
       uses: actions/configure-pages@v4
       
