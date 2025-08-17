@@ -27,11 +27,22 @@ jobs:
     - name: Build application
       run: npm run build
       
-    - name: Create static export
+    - name: Create proper static export
       run: |
         mkdir -p out
+        # Copy HTML files
         cp -r .next/server/app/* out/
-        cp -r .next/static out/
+        # Copy static assets with proper structure
+        mkdir -p out/_next/static
+        cp -r .next/static/* out/_next/static/
+        # Copy any other necessary files
+        cp -r .next/server/pages-manifest.json out/ 2>/dev/null || true
+        cp -r .next/server/app-paths-manifest.json out/ 2>/dev/null || true
+        # List what we have
+        echo "Contents of out directory:"
+        ls -la out/
+        echo "Contents of out/_next/static:"
+        ls -la out/_next/static/
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
