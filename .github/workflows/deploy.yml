@@ -33,6 +33,11 @@ jobs:
         cp -r .next/server/app/* public/
         mkdir -p public/_next/static
         cp -r .next/static/* public/_next/static/
+        
+        # Fix asset paths in HTML files to use relative paths
+        find public -name "*.html" -exec sed -i 's|href="/_next/static/|href="./_next/static/|g' {} \;
+        find public -name "*.html" -exec sed -i 's|src="/_next/static/|src="./_next/static/|g' {} \;
+        
         echo "Static export created successfully!"
         echo "Contents of public directory:"
         ls -la public/
