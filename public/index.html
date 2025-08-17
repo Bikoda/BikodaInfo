@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BikodaInfo - Vibecoding Studio</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            background: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+            color: #ffffff;
+            min-height: 100vh;
+            line-height: 1.6;
+        }
+        .container { 
+            max-width: 1200px; 
+            margin: 0 auto; 
+            padding: 2rem;
+        }
+        .hero {
+            text-align: center;
+            padding: 4rem 0;
+        }
+        .hero h1 { 
+            color: #fbbf24; 
+            font-size: 4rem; 
+            margin-bottom: 1rem;
+            font-weight: 800;
+        }
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: #9ca3af;
+            margin-bottom: 2rem;
+        }
+        .badge {
+            display: inline-block;
+            background: #374151;
+            color: #fbbf24;
+            padding: 0.5rem 1rem;
+            border-radius: 9999px;
+            font-size: 0.875rem;
+            font-weight: 600;
+            margin: 0.5rem;
+        }
+        .services {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 4rem 0;
+        }
+        .service {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #374151;
+        }
+        .service h3 {
+            color: #fbbf24;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .contact {
+            background: #1a1a1a;
+            padding: 3rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-top: 4rem;
+            border: 1px solid #374151;
+        }
+        .contact h2 {
+            color: #fbbf24;
+            font-size: 2rem;
+            margin-bottom: 2rem;
+        }
+        .contact a {
+            color: #fbbf24;
+            text-decoration: none;
+            font-weight: 600;
+            margin: 0 1rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #fbbf24;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+        .contact a:hover {
+            background: #fbbf24;
+            color: #0a0a0a;
+        }
+        .process {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        .process h2 {
+            color: #fbbf24;
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+        }
+        .process-steps {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        .step {
+            background: #1a1a1a;
+            padding: 2rem;
+            border-radius: 12px;
+            border: 1px solid #374151;
+            min-width: 200px;
+        }
+        .step h3 {
+            color: #fbbf24;
+            margin-bottom: 1rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="hero">
+            <h1>🚀 BikodaInfo</h1>
+            <p class="subtitle">Vibecoding Studio</p>
+            <div>
+                <span class="badge">Games</span>
+                <span class="badge">Apps & Web</span>
+                <span class="badge">Business Solutions</span>
+                <span class="badge">Testing & QA</span>
+            </div>
+        </div>
+
+        <div class="services">
+            <div class="service">
+                <h3>🎮 Video Games</h3>
+                <p>From rapid prototypes to polished builds in Unity/Unreal. Gameplay, tools, pipelines, and builds for PC or mobile.</p>
+            </div>
+            <div class="service">
+                <h3>💻 Apps & Web</h3>
+                <p>Desktop apps, APIs, and full‑stack web. Ship reliable software with clean code and pragmatic DX.</p>
+            </div>
+            <div class="service">
+                <h3>🏢 Business Solutions</h3>
+                <p>Custom software solutions for business needs. From internal tools to customer-facing applications.</p>
+            </div>
+            <div class="service">
+                <h3>🧪 Testing & QA</h3>
+                <p>Test plans, automation, CI/CD hardening, and bug‑hunting. I break things so users don't.</p>
+            </div>
+        </div>
+
+        <div class="process">
+            <h2>Process</h2>
+            <div class="process-steps">
+                <div class="step">
+                    <h3>🎵 Jam</h3>
+                    <p>Collaborate and ideate</p>
+                </div>
+                <div class="step">
+                    <h3>🔨 Build</h3>
+                    <p>Develop and iterate</p>
+                </div>
+                <div class="step">
+                    <h3>🚀 Ship</h3>
+                    <p>Deploy and maintain</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="contact">
+            <h2>Get In Touch</h2>
+            <p>Ready to start your next project? Let's build something amazing together!</p>
+            <div style="margin-top: 2rem;">
+                <a href="mailto:contact@bikoda.dev">📧 Email</a>
+                <a href="https://github.com/Bikoda" target="_blank">🔗 GitHub</a>
+                <a href="https://www.linkedin.com/in/juan-francisco-maggi/" target="_blank">💼 LinkedIn</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
