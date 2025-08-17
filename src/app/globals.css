@@ -1,0 +1,118 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Light theme (fallback) */
+    --background: 0 0% 100%;
+    --foreground: 220 13% 9%;
+    --card: 0 0% 100%;
+    --card-foreground: 220 13% 9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 220 13% 9%;
+    --primary: 48 96% 53%;
+    --primary-foreground: 220 13% 9%;
+    --secondary: 220 13% 96%;
+    --secondary-foreground: 220 13% 9%;
+    --muted: 220 13% 96%;
+    --muted-foreground: 220 9% 46%;
+    --accent: 48 96% 53%;
+    --accent-foreground: 220 13% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 220 13% 91%;
+    --input: 220 13% 91%;
+    --ring: 48 96% 53%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    /* Dark theme as default with yellow accents */
+    --background: 220 13% 9%;
+    --foreground: 220 9% 92%;
+    --card: 220 13% 11%;
+    --card-foreground: 220 9% 92%;
+    --popover: 220 13% 11%;
+    --popover-foreground: 220 9% 92%;
+    --primary: 48 96% 53%;
+    --primary-foreground: 220 13% 9%;
+    --secondary: 220 13% 15%;
+    --secondary-foreground: 220 9% 85%;
+    --muted: 220 13% 15%;
+    --muted-foreground: 220 9% 65%;
+    --accent: 48 96% 53%;
+    --accent-foreground: 220 13% 9%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 220 9% 92%;
+    --border: 220 13% 20%;
+    --input: 220 13% 20%;
+    --ring: 48 96% 53%;
+    
+    /* Custom yellow variants */
+    --yellow-50: 48 100% 96%;
+    --yellow-100: 48 96% 88%;
+    --yellow-500: 48 96% 53%;
+    --yellow-600: 45 93% 47%;
+    --yellow-900: 25 95% 13%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-feature-settings: "rlig" 1, "calt" 1;
+  }
+  
+  /* Enhanced dark theme styles */
+  html {
+    color-scheme: dark;
+  }
+  
+  /* Custom scrollbar for dark theme */
+  ::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  ::-webkit-scrollbar-track {
+    @apply bg-muted;
+  }
+  
+  ::-webkit-scrollbar-thumb {
+    @apply bg-border rounded-full;
+  }
+  
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-primary/20;
+  }
+  
+  /* Enhanced gradients and effects */
+  .dark-gradient {
+    @apply bg-gradient-to-b from-[#0a0a0b] via-[#0b0b12] to-[#0a0a0b];
+  }
+  
+  .yellow-glow {
+    box-shadow: 0 0 24px rgba(255, 204, 0, 0.35);
+  }
+  
+  .card-glow {
+    box-shadow: 0 0 0 1px hsl(var(--border) / 0.5), 0 8px 40px rgba(0,0,0,0.35);
+    transition: all 0.3s ease;
+  }
+  
+  .card-glow:hover {
+    box-shadow: 
+      0 0 0 1px hsl(var(--primary) / 0.3),
+      0 12px 50px rgba(0,0,0,0.5),
+      0 0 20px hsl(var(--primary) / 0.2);
+    transform: translateY(-2px);
+  }
+  
+  /* Focus states for accessibility */
+  a, button {
+    @apply focus:outline-none focus:ring-2 focus:ring-primary/60 focus:ring-offset-2;
+  }
+} 
