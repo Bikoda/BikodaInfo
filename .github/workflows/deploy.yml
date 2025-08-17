@@ -27,22 +27,17 @@ jobs:
     - name: Build application
       run: npm run build
       
-    - name: Create proper static export
+    - name: Create static export for deployment
       run: |
-        mkdir -p out
-        # Copy HTML files
-        cp -r .next/server/app/* out/
-        # Copy static assets with proper structure
-        mkdir -p out/_next/static
-        cp -r .next/static/* out/_next/static/
-        # Copy any other necessary files
-        cp -r .next/server/pages-manifest.json out/ 2>/dev/null || true
-        cp -r .next/server/app-paths-manifest.json out/ 2>/dev/null || true
-        # List what we have
-        echo "Contents of out directory:"
-        ls -la out/
-        echo "Contents of out/_next/static:"
-        ls -la out/_next/static/
+        mkdir -p public
+        cp -r .next/server/app/* public/
+        mkdir -p public/_next/static
+        cp -r .next/static/* public/_next/static/
+        echo "Static export created successfully!"
+        echo "Contents of public directory:"
+        ls -la public/
+        echo "Contents of public/_next/static:"
+        ls -la public/_next/static/
       
     - name: Setup Pages
       uses: actions/configure-pages@v4
@@ -50,7 +45,7 @@ jobs:
     - name: Upload artifact
       uses: actions/upload-pages-artifact@v3
       with:
-        path: './out'
+        path: './public'
 
   deploy:
     environment:
