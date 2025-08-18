@@ -2,7 +2,7 @@ name: Deploy to GitHub Pages
 
 on:
   push:
-    branches: [ develop, main ]
+    branches: [ develop ]
 
 permissions:
   contents: read
@@ -46,6 +46,10 @@ jobs:
         find public -name "*.rsc" -exec sed -i 's|"/_next/static/|"./_next/static/|g' {} \;
         find public -name "*.rsc" -exec sed -i 's|/_next/static/|./_next/static/|g' {} \;
         
+        # Additional fixes for webpack and other references
+        find public -name "*.js" -exec sed -i 's|s\.p="/_next/"|s.p="./_next/"|g' {} \;
+        find public -name "*.js" -exec sed -i 's|s\.miniCssF=function\(e\){return"static/css/|s.miniCssF=function(e){return"./_next/static/css/|g' {} \;
+        
         echo "Static export created successfully!"
         echo "Contents of public directory:"
         ls -la public/
@@ -66,22 +70,8 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     needs: build
-    if: github.ref == 'refs/heads/main'
     
     steps:
     - name: Deploy to GitHub Pages
-      id: deployment
-      uses: actions/deploy-pages@v4
-
-  deploy-preview:
-    environment:
-      name: github-pages
-      url: ${{ steps.deployment.outputs.page_url }}
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/develop'
-    
-    steps:
-    - name: Deploy Preview to GitHub Pages
       id: deployment
       uses: actions/deploy-pages@v4
