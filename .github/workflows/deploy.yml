@@ -38,6 +38,14 @@ jobs:
         find public -name "*.html" -exec sed -i 's|href="/_next/static/|href="./_next/static/|g' {} \;
         find public -name "*.html" -exec sed -i 's|src="/_next/static/|src="./_next/static/|g' {} \;
         
+        # Fix asset paths in JavaScript files to use relative paths
+        find public -name "*.js" -exec sed -i 's|"/_next/static/|"./_next/static/|g' {} \;
+        find public -name "*.js" -exec sed -i 's|/_next/static/|./_next/static/|g' {} \;
+        
+        # Fix asset paths in RSC files to use relative paths
+        find public -name "*.rsc" -exec sed -i 's|"/_next/static/|"./_next/static/|g' {} \;
+        find public -name "*.rsc" -exec sed -i 's|/_next/static/|./_next/static/|g' {} \;
+        
         echo "Static export created successfully!"
         echo "Contents of public directory:"
         ls -la public/
