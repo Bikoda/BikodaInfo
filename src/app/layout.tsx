@@ -8,6 +8,11 @@ export const metadata: Metadata = {
   title: "BikodaInfo — Vibecoding & Testing",
   description: "Games, apps, business solutions, QA. Pair in Cursor or hand me the spec—either way, we ship.",
   metadataBase: new URL("https://bikoda.dev"),
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg',
+  },
   openGraph: {
     title: "BikodaInfo",
     description: "Vibecoding studio by Juan Francisco Maggi.",
@@ -36,4 +41,4 @@ export default function RootLayout({
       <body className={inter.className}>{children}</body>
     </html>
   )
-} 
+}
